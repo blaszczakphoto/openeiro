@@ -1,0 +1,2 @@
+class DoorsEvent < ApplicationRecord
+end
