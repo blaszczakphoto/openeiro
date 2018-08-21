@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is repository of a openeiro API. The API is consumed by Android App. 
+The API allows to notify employees when the office is open.
 
-Things you may want to cover:
+## Local setup
+```
+git clone git@github.com:blaszczakphoto/openeiro.git
+docker-compose build
+docker-compose up web
+```
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Deployment
+```
+heroku container:login
+heroku container:push web
+heroku container:release web
+heroku run rails db:migrate
+```
