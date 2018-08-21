@@ -17,3 +17,8 @@ heroku container:push web
 heroku container:release web
 heroku run rails db:migrate
 ```
+
+## Running tests locally
+```
+docker-compose run web bundle exec rspec
+```
