@@ -40,4 +40,11 @@ RSpec.describe Doors do
       expect(Doors.open?).to be_truthy
     end
   end
+
+  describe '.last_event' do
+    it 'is the last DoorsEvent' do
+      event = DoorsEvent.create
+      expect(Doors.last_event).to eq(event)
+    end
+  end
 end

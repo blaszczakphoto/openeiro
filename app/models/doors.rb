@@ -15,4 +15,8 @@ class Doors
   def self.open?
     DoorsEvent.last.open?
   end
+
+  def self.last_event
+    DoorsEvent.last
+  end
 end
