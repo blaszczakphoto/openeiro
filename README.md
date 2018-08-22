@@ -22,3 +22,8 @@ heroku run rails db:migrate
 ```
 docker-compose run web bundle exec rspec
 ```
+
+## Test endpoints via curl
+```
+curl -X POST "http://openeiro-api.herokuapp.com/slack/handle_event" -H "Content-Type: application/json" --data '{ "token": "Jhj5dZrVaK7ZwHHjRyZWjbDl", "challenge": "3eZbrw1aBm2rZgRNFdxV2595E9CY3gmdALWMmHkvFXO7tYXAYM8P", "type": "url_verification" }'
+```
