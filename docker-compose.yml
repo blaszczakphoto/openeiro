@@ -16,3 +16,4 @@ services:
     environment:
       DATABASE_URL: postgres://postgres@db
       SLACK_INCOMING_WEBHOOK_URL: ${SLACK_INCOMING_WEBHOOK_URL}
+      FIREBASE_APP_SERVER_KEY: ${FIREBASE_APP_SERVER_KEY}

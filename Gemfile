@@ -26,6 +26,8 @@ gem 'httparty', '~> 0.16.2'
 # gem 'rack-cors'
 gem 'slack-ruby-client', '~> 0.12.0'
 
+gem 'fcm'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
