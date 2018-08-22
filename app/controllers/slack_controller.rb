@@ -1,5 +1,7 @@
 class SlackController < ApplicationController
   def handle_event
-    render json: { challenge: params.permit(:challenge).fetch("challenge") }
+    handler = Slack::EventHandler.for(params)
+    result = handler.handle
+    render json: result
   end
 end
