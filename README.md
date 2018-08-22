@@ -6,6 +6,9 @@ The API allows to notify employees when the office is open.
 ## Local setup
 ```
 git clone git@github.com:blaszczakphoto/openeiro.git
+
+cp .env.sample .env #and fill it with proper values
+
 docker-compose build
 docker-compose up web
 ```

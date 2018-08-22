@@ -1,7 +1,9 @@
 module DoorsState
   class Toggle
     def call
-      Doors.toggle!
+      event = Doors.toggle!
+      Slack::PushNotification.notify if Doors.open?
+      event
     end
   end
 end
