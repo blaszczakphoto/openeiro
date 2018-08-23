@@ -10,7 +10,7 @@ RSpec.describe UsersController do
         expect(response.status).to eq(201)
       end
 
-      it 'returns created user in json body' do
+      it 'returns no body' do
         params = { user_id: 'UUID_SAMPLE', registration_id: 'TOKEN_SAMPLE' }
 
         post :register, params: params
@@ -18,9 +18,7 @@ RSpec.describe UsersController do
         response_body = JSON.parse(response.body)
 
         expect(response_body['status']).to eq('success')
-        expect(response_body['body']['uuid']).to eq('UUID_SAMPLE')
-        expect(response_body['body']['registration_id']).to eq('TOKEN_SAMPLE')
-        expect(response_body['body']).to have_key('created_at')
+        expect(response_body['body']).to eq('')
       end
     end
 
