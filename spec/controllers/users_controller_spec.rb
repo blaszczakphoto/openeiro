@@ -56,5 +56,28 @@ RSpec.describe UsersController do
         expect(response.body).to eq(expected_response)
       end
     end
+
+    context 'user with specified user_id already exist' do
+      it 'updates registration_id' do
+        existing_user = User.create(uuid: 'UUID_SAMPLE', registration_id: 'TOKEN_SAMPLE')
+
+        params = { user_id: 'UUID_SAMPLE', registration_id: 'NEW_TOKEN_SAMPLE' }
+
+        expect { post :register, params: params }
+          .to change { existing_user.reload.registration_id }
+          .from('TOKEN_SAMPLE')
+          .to('NEW_TOKEN_SAMPLE')
+      end
+
+      it 'returns success in response' do
+        User.create(uuid: 'UUID_SAMPLE', registration_id: 'TOKEN_SAMPLE')
+
+        params = { user_id: 'UUID_SAMPLE', registration_id: 'NEW_TOKEN_SAMPLE' }
+        post :register, params: params
+
+        response_body = JSON.parse(response.body)
+        expect(response_body['status']).to eq('success')
+      end
+    end
   end
 end

@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   def register
-    user = User.new(uuid: filtered_params[:user_id], registration_id: filtered_params[:registration_id])
+    user = User.find_by(uuid: filtered_params[:user_id])
+    if user
+      user.registration_id = filtered_params[:registration_id]
+    else
+      user = User.new(uuid: filtered_params[:user_id], registration_id: filtered_params[:registration_id])
+    end
     if user.save
       render json: { status: 'success', body: '' }, status: 201
     else
