@@ -6,7 +6,10 @@ module Slack
     end
 
     def handle
-      Doors.open! if message_implicate_that_doors_were_just_opened?
+      if message_implicate_that_doors_were_just_opened?
+        Doors.open!
+        Firebase::PushToAndroid.new.call
+      end
     end
 
     private
